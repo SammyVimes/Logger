@@ -166,7 +166,7 @@ public class Logger implements ILogger {
 		
 	}
 
-	private class LogTask<T> {
+	private class LogTask {
 		
 		final String tag;
 		final String message;
