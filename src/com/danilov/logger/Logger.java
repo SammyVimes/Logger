@@ -12,7 +12,6 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-@SuppressWarnings("rawtypes")
 public class Logger implements ILogger {
 	
 	private String ERROR_TAG = "ERROR";
@@ -135,7 +134,9 @@ public class Logger implements ILogger {
 					unlocked = true;
 				} finally {
 					try {
-						writer.close();
+						if (writer != null) {
+							writer.close();
+						}
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
